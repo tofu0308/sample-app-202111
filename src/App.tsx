@@ -51,6 +51,11 @@ let value: boolean | number;
 value = false
 value = 2
 
+// Literal Types
+let abc: 'A'|'B'|'C'
+abc = 'A'
+
+
 let arrayUni: (number|string)[];
 arrayUni = [2,'a','b']
 
