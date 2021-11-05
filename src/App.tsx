@@ -55,6 +55,14 @@ value = 2
 let abc: 'A'|'B'|'C'
 abc = 'A'
 
+// typeof
+let msg: string = 'hi'
+let msg2: typeof msg;
+msg2 = 'string'
+
+let animal = {cat: 'small cat'}
+let newAnimal: typeof animal = { cat: 'big cat' }
+
 
 let arrayUni: (number|string)[];
 arrayUni = [2,'a','b']
