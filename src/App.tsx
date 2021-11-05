@@ -51,6 +51,9 @@ let value: boolean | number;
 value = false
 value = 2
 
+let arrayUni: (number|string)[];
+arrayUni = [2,'a','b']
+
 // Literal Types
 let abc: 'A'|'B'|'C'
 abc = 'A'
@@ -74,7 +77,6 @@ let key: keyof KEYS
 // key = 'aaa' // 型 '"aaa"' を型 'keyof KEYS' に割り当てることはできません。ts(2322)
 
 // typeof + keyof
-
 const SPORTS = {
   soccer: "Soccer",
   baseball: 'baseball'
@@ -83,9 +85,29 @@ const SPORTS = {
 let keySports: keyof typeof SPORTS;
 keySports = 'soccer'
 
+// enum
+// 列挙型。自動で連番をつけてくれる
+enum OS {
+  Windows,
+  Mac,
+  Linux
+}
 
-let arrayUni: (number|string)[];
-arrayUni = [2,'a','b']
+interface PC {
+  id: number;
+  OSType: OS;
+}
+
+const PC1: PC = {
+  id:1,
+  OSType: OS.Windows // (enum member) OS.Windows = 0
+}
+
+const PC2: PC = {
+  id:2,
+  OSType: OS.Mac // (enum member) OS.Windows = 0
+}
+
 
 function App() {
   return (
