@@ -56,12 +56,32 @@ let abc: 'A'|'B'|'C'
 abc = 'A'
 
 // typeof
+// 　実用例としてはjsonなどを継承させる
 let msg: string = 'hi'
 let msg2: typeof msg;
 msg2 = 'string'
 
 let animal = {cat: 'small cat'}
 let newAnimal: typeof animal = { cat: 'big cat' }
+
+// keyof
+type KEYS = {
+  primary: string
+  scondary: string
+}
+
+let key: keyof KEYS 
+// key = 'aaa' // 型 '"aaa"' を型 'keyof KEYS' に割り当てることはできません。ts(2322)
+
+// typeof + keyof
+
+const SPORTS = {
+  soccer: "Soccer",
+  baseball: 'baseball'
+}
+
+let keySports: keyof typeof SPORTS;
+keySports = 'soccer'
 
 
 let arrayUni: (number|string)[];
