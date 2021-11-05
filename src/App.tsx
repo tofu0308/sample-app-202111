@@ -46,6 +46,14 @@ const userA: USER = {
   password: 'yyy'
 }
 
+// Union Types
+let value: boolean | number;
+value = false
+value = 2
+
+let arrayUni: (number|string)[];
+arrayUni = [2,'a','b']
+
 function App() {
   return (
     <div className="App">
