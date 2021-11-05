@@ -26,6 +26,25 @@ const func1 = (x: number,y: number): number => {
   return x + y
 }
 
+// Intersection Types
+type PROFILE = {
+  age: number;
+  city: string;
+}
+
+type LOGIN = {
+  username: string;
+  password: string;
+}
+
+type USER = PROFILE & LOGIN
+
+const userA: USER = {
+  age: 30,
+  city: 'tokyo',
+  username: 'xxx',
+  password: 'yyy'
+}
 
 function App() {
   return (
