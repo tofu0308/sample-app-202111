@@ -108,6 +108,25 @@ const PC2: PC = {
   OSType: OS.Mac // (enum member) OS.Windows = 0
 }
 
+// 型の互換性
+const comp1 = 'test'
+let comp2: string = comp1
+
+let comp3: string = 'test'
+// const comp4:'test' = comp3
+//型 'string' を型 '"test"' に割り当てることはできません。ts(2322)
+
+let funcComp1 = (x:number) => {}
+let funcComp2 = (x:string) => {}
+
+// funcComp1 = funcComp2
+/**
+ 型 '(x: string) => void' を型 '(x: number) => void' に割り当てることはできません。
+  パラメーター 'x' および 'x' は型に互換性がありません。
+    型 'number' を型 'string' に割り当てることはできません。ts(2322)
+ */
+
+
 
 function App() {
   return (
