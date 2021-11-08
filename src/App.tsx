@@ -126,6 +126,53 @@ let funcComp2 = (x:string) => {}
     型 'number' を型 'string' に割り当てることはできません。ts(2322)
  */
 
+// Generics
+interface GEN<T> {
+  item: T // まだデータ型は定まっていない
+}
+
+const gen0:GEN<string> = {item: 'hello'}
+// const gen1: GEN = {item: 'hello'} // ジェネリック型 'GEN<T>' には 1 個の型引数が必要です。ts(2314)
+// const gen2:GEN<number> = {item: 'hello'} // 型 'string' を型 'number' に割り当てることはできません。ts(2322)
+
+interface GEN1<T = string> {
+  item: T // まだデータ型は定まっていない
+}
+const gen3: GEN1 = { item: 'hello' }
+
+interface GEN2<T extends string | number> {
+  item: T
+}
+const gen4:GEN2<number> = {item: 4}
+// const gen5:GEN2<boolean> = {item: true} // 型 'boolean' は制約 'string | number' を満たしていません。ts(2344)
+
+function funcGen<T>(props: T) {
+  return {item: props}
+}
+
+const gen6 = funcGen<string>('text')
+const gen7 = funcGen<string | null>(null)
+
+function funcGen1<T extends string | null>(props: T) {
+  return { value: props}
+}
+
+const gen8 = funcGen1("text")
+// const gen9 = funcGen1(123) // 型 '123' の引数を型 'string | null' のパラメーターに割り当てることはできません。ts(2345)
+
+interface Props {
+  price: number;
+}
+
+function funcGen3<T extends Props>(props: T) {
+  return { value: props.price}
+}
+
+const gen10 = funcGen3({price: 10})
+
+const funcGEN4 = <T extends Props>(props: T) => {
+  return { value: props.price}
+}
 
 
 function App() {
